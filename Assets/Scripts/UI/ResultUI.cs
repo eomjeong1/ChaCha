@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngineInternal;
 
 public class ResultUI : MonoBehaviour
 {
@@ -16,9 +17,7 @@ public class ResultUI : MonoBehaviour
     public RawImage gV;
     public RawImage bV;
     bool isOver;
-    public Image[] imginfo;
 
-    public Button[] buttons;
     // Start is called before the first frame update
     void Start()
     {
@@ -102,16 +101,4 @@ public class ResultUI : MonoBehaviour
         bVid.Stop();
         resultBtn.gameObject.SetActive(false);
     }
-    public void ChooseBtn()
-    {
-        for (int i = 0; i < buttons.Length; i++)
-        {
-            buttons[i] = GetComponentInChildren<Button>();
-            buttons[i].gameObject.SetActive(false);
-            buttons[i].gameObject.AddComponent<AudioSource>();
-            
-        }
-    }
-   
-
 }
