@@ -9,8 +9,8 @@ public class ResultUI : MonoBehaviour
    public Button R1;
    public Button Back;
     public Button resultBtn;
-   public RawImage RImg;
-   public VideoPlayer vid;
+//   public RawImage RImg;
+//   public VideoPlayer vid;
     public VideoPlayer gVid;
     public VideoPlayer bVid;
     public RawImage gV;
@@ -24,15 +24,15 @@ public class ResultUI : MonoBehaviour
     {
         gV = GetComponentsInChildren<RawImage>()[0];
         bV = GetComponentsInChildren<RawImage>()[1];
-        RImg = GetComponentsInChildren<RawImage>()[2];
+  //      RImg = GetComponentsInChildren<RawImage>()[2];
 
         gVid = GetComponentsInChildren<VideoPlayer>()[0];
         bVid = GetComponentsInChildren<VideoPlayer>()[1];
-        vid = GetComponentsInChildren<VideoPlayer>()[2];
+ //       vid = GetComponentsInChildren<VideoPlayer>()[2];
 
         gV.gameObject.SetActive(false);
         bV.gameObject.SetActive(false);
-        RImg.gameObject.SetActive(false);
+  //      RImg.gameObject.SetActive(false);
 
         if (GameManager.GetInstance().curScore >= 3)
         {
@@ -50,8 +50,7 @@ public class ResultUI : MonoBehaviour
         gVid.loopPointReached += CheckOver;
         bVid.loopPointReached += CheckOver;
         if (isOver == true)
-        {
-            Debug.Log("isOver");
+        { 
            gV.gameObject.SetActive(false);
            bV.gameObject.SetActive(false);
         }
@@ -66,28 +65,26 @@ public class ResultUI : MonoBehaviour
             Back.onClick.AddListener(BackBtn);
             Back.gameObject.SetActive(false);
 
-            RImg.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
     public void R1Btn()
     {   
         Debug.Log("Onclick");
-        RImg.gameObject.SetActive(true);
+   //     RImg.gameObject.SetActive(true);
         Back.gameObject.SetActive(true);
-        vid.gameObject.SetActive(true);
+   //     vid.gameObject.SetActive(true);
 
-        vid.clip = Resources.Load<VideoClip>($"Video/result/È¾´Üº¸µµ±³À°");
+   //     vid.clip = Resources.Load<VideoClip>($"Video/result/È¾´Üº¸µµ±³À°");
         Debug.Log("VideoFound");
-        vid.Play();
-        Debug.Log("VideoPlay");
-        vid.loopPointReached += CheckOver;
+  //      vid.loopPointReached += CheckOver;
     }
     public void BackBtn()
     { 
-        RImg.gameObject.SetActive(false);
+   //     RImg.gameObject.SetActive(false);
         Back.gameObject.SetActive(false);
-        vid.Stop();
+  //      vid.Stop();
     }
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {

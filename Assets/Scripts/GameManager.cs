@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
    
     private string playerName = null;
 
+    public void Start()
+    {
+        SetScore();
+    }
+
     public void SetScore()
     {
         totalScore = 5;

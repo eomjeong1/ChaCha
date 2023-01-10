@@ -2130,3 +2130,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   start: {fileID: 1782670967999646691}
+  main: {fileID: 0}
+  stickerManager: {fileID: 0}
