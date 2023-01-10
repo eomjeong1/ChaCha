@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,19 +22,13 @@ public class GameManager : MonoBehaviour
 
     public int curScore;
     public int totalScore;
+   
+    private string playerName = null;
 
-    public PlayerInfo[] playerData = new PlayerInfo[]
-        {
-            new PlayerInfo("")
-        };
-
-    public PlayerInfo SetPlayer(int num)
-    {
-        return playerData[num];
-    }
     public void SetScore()
     {
         totalScore = 5;
         curScore = 5;
     }
+
 }
