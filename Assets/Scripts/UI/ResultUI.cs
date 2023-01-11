@@ -5,12 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class ResultUI : MonoBehaviour
-{
-   public Button R1;
+{ 
    public Button Back;
     public Button resultBtn;
-//   public RawImage RImg;
-//   public VideoPlayer vid;
     public VideoPlayer gVid;
     public VideoPlayer bVid;
     public RawImage gV;
@@ -46,36 +43,30 @@ public class ResultUI : MonoBehaviour
         gVid.loopPointReached += CheckOver;
         bVid.loopPointReached += CheckOver;
         
-        if (R1 != null)
-        R1.onClick.AddListener(R1Btn);
         if (resultBtn != null)
             resultBtn.onClick.AddListener(result);
-        if (Back != null)
-            Back.onClick.AddListener(BackBtn);
-            Back.gameObject.SetActive(false);
+
+        if (buttons != null)
+        {
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i] = GetComponentInChildren<Button>();
+                buttons[i].gameObject.SetActive(false);
+                buttons[i].gameObject.AddComponent<AudioSource>();
+                
+            }
+            
+        }
 
 
     }
 
-    // Update is called once per frame
-    public void R1Btn()
-    {   
-        Debug.Log("Onclick");
-        Back.gameObject.SetActive(true);
-        Debug.Log("VideoFound");
-
-    }
-    public void BackBtn()
-    { 
-   //     RImg.gameObject.SetActive(false);
-        Back.gameObject.SetActive(false);
-  //      vid.Stop();
-    }
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
         
         gV.gameObject.SetActive(false);
         bV.gameObject.SetActive(false);
+        resultBtn.gameObject.SetActive(false);
         Debug.Log("CheckOver");
     }
     public void result()
@@ -86,16 +77,9 @@ public class ResultUI : MonoBehaviour
         bVid.Stop();
         resultBtn.gameObject.SetActive(false);
     }
-    public void ChooseBtn()
-    {
-        for (int i = 0; i < buttons.Length; i++)
-        {
-            buttons[i] = GetComponentInChildren<Button>();
-            buttons[i].gameObject.SetActive(false);
-            buttons[i].gameObject.AddComponent<AudioSource>();
-            
-        }
+    public void CheckCor()
+    { 
+        
     }
-   
 
 }
