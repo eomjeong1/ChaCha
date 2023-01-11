@@ -40,7 +40,7 @@ public class UIProfile : MonoBehaviour
             }
             else
             {
-                apple[i].sprite = Resources.Load<Sprite>($"Image/Apple");
+                apple[i].sprite = Resources.Load<Sprite>($"Image/LApple");
             }
         }
     }

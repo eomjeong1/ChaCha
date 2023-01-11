@@ -17,22 +17,20 @@ public class ResultUI : MonoBehaviour
     public RawImage bV;
     bool isOver;
     public Image[] imginfo;
+    public GameObject scroll;
 
     public Button[] buttons;
     // Start is called before the first frame update
     void Start()
     {
         gV = GetComponentsInChildren<RawImage>()[0];
-        bV = GetComponentsInChildren<RawImage>()[1];
-  //      RImg = GetComponentsInChildren<RawImage>()[2];
+        bV = GetComponentsInChildren<RawImage>()[1]; 
 
         gVid = GetComponentsInChildren<VideoPlayer>()[0];
         bVid = GetComponentsInChildren<VideoPlayer>()[1];
- //       vid = GetComponentsInChildren<VideoPlayer>()[2];
 
         gV.gameObject.SetActive(false);
         bV.gameObject.SetActive(false);
-  //      RImg.gameObject.SetActive(false);
 
         if (GameManager.GetInstance().curScore >= 3)
         {
@@ -45,41 +43,30 @@ public class ResultUI : MonoBehaviour
             bV.gameObject.SetActive(true);
             bVid.Play();
         }
-            
 
-        gVid.loopPointReached += CheckOver;
-        bVid.loopPointReached += CheckOver;
-        if (isOver == true)
-        { 
-           gV.gameObject.SetActive(false);
-           bV.gameObject.SetActive(false);
-        }
-
-        
-
-        if (R1 != null)
-        R1.onClick.AddListener(R1Btn);
         if (resultBtn != null)
             resultBtn.onClick.AddListener(result);
         if (Back != null)
             Back.onClick.AddListener(BackBtn);
             Back.gameObject.SetActive(false);
+        if (buttons != null)
+        {
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                
+                buttons[i] = GetComponentInChildren<Button>();
+                buttons[i].gameObject.AddComponent<AudioSource>();
+                buttons[i].onClick.AddListener(ChooseBtn);
+                imginfo[i].sprite = Resources.Load<Sprite>($"Image/result/{i+1}");
+                
+                
+            }
+            
+        }
 
-
+        
     }
 
-    // Update is called once per frame
-    public void R1Btn()
-    {   
-        Debug.Log("Onclick");
-   //     RImg.gameObject.SetActive(true);
-        Back.gameObject.SetActive(true);
-   //     vid.gameObject.SetActive(true);
-
-   //     vid.clip = Resources.Load<VideoClip>($"Video/result/È¾´Üº¸µµ±³À°");
-        Debug.Log("VideoFound");
-  //      vid.loopPointReached += CheckOver;
-    }
     public void BackBtn()
     { 
    //     RImg.gameObject.SetActive(false);
@@ -101,13 +88,7 @@ public class ResultUI : MonoBehaviour
     }
     public void ChooseBtn()
     {
-        for (int i = 0; i < buttons.Length; i++)
-        {
-            buttons[i] = GetComponentInChildren<Button>();
-            buttons[i].gameObject.SetActive(false);
-            buttons[i].gameObject.AddComponent<AudioSource>();
-            
-        }
+        scroll.gameObject.SetActive(true);
     }
    
 
