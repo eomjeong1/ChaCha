@@ -60,8 +60,7 @@ public class ScenesManager : MonoBehaviour
 
     void ResetSetting()
     {
-        //UIManager.GetInstance().ClearList();
-        //EffectManager.GetInstance().ReleasePool();
+        UIManager.GetInstance().ClearList();
     }
     #endregion
 
