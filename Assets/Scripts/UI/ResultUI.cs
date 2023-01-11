@@ -24,15 +24,12 @@ public class ResultUI : MonoBehaviour
     {
         gV = GetComponentsInChildren<RawImage>()[0];
         bV = GetComponentsInChildren<RawImage>()[1];
-  //      RImg = GetComponentsInChildren<RawImage>()[2];
 
         gVid = GetComponentsInChildren<VideoPlayer>()[0];
         bVid = GetComponentsInChildren<VideoPlayer>()[1];
- //       vid = GetComponentsInChildren<VideoPlayer>()[2];
 
         gV.gameObject.SetActive(false);
         bV.gameObject.SetActive(false);
-  //      RImg.gameObject.SetActive(false);
 
         if (GameManager.GetInstance().curScore >= 3)
         {
@@ -45,18 +42,10 @@ public class ResultUI : MonoBehaviour
             bV.gameObject.SetActive(true);
             bVid.Play();
         }
-            
 
         gVid.loopPointReached += CheckOver;
         bVid.loopPointReached += CheckOver;
-        if (isOver == true)
-        { 
-           gV.gameObject.SetActive(false);
-           bV.gameObject.SetActive(false);
-        }
-
         
-
         if (R1 != null)
         R1.onClick.AddListener(R1Btn);
         if (resultBtn != null)
@@ -72,13 +61,9 @@ public class ResultUI : MonoBehaviour
     public void R1Btn()
     {   
         Debug.Log("Onclick");
-   //     RImg.gameObject.SetActive(true);
         Back.gameObject.SetActive(true);
-   //     vid.gameObject.SetActive(true);
-
-   //     vid.clip = Resources.Load<VideoClip>($"Video/result/È¾´Üº¸µµ±³À°");
         Debug.Log("VideoFound");
-  //      vid.loopPointReached += CheckOver;
+
     }
     public void BackBtn()
     { 
@@ -88,8 +73,10 @@ public class ResultUI : MonoBehaviour
     }
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
+        
+        gV.gameObject.SetActive(false);
+        bV.gameObject.SetActive(false);
         Debug.Log("CheckOver");
-        isOver = true;
     }
     public void result()
     {
