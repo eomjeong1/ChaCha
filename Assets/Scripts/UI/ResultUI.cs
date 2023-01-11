@@ -5,8 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class ResultUI : MonoBehaviour
-{ 
-   public Button Back;
+{
+    public Button Back;
     public Button resultBtn;
     public VideoPlayer gVid;
     public VideoPlayer bVid;
@@ -15,6 +15,7 @@ public class ResultUI : MonoBehaviour
     bool isOver;
     public Image img;
     public ScenesManager sM;
+    public int num;
 
     public Button[] buttons;
     // Start is called before the first frame update
@@ -43,37 +44,27 @@ public class ResultUI : MonoBehaviour
 
         gVid.loopPointReached += CheckOver;
         bVid.loopPointReached += CheckOver;
-        
+
         if (resultBtn != null)
             resultBtn.onClick.AddListener(result);
 
         if (buttons != null)
         {
             sM = ScenesManager.GetInstance();
-           
-            for (int i = 0; i < sM.currentGame; i++)
+            
+            for (int i = 0; i < buttons.Length; i++)
             {
-                buttons[i] = GetComponentInChildren<Button>();               
+                buttons[i] = GetComponentInChildren<Button>();
                 buttons[i].gameObject.AddComponent<AudioSource>();
                 buttons[i].onClick.AddListener(ShowAnswer);
                 Debug.Log("버튼 셋팅 완료");
 
-                if (sM.isCorr == true)
-                {
-                    buttons[i].image.color = Color.red;
-                    Debug.Log($"{i}번째 버튼의 isCorr == true 빨강으로 바꿉니다.");
-                }
+                GreenRed(i);
 
-                if (sM.isCorr == false)
-                {
-                    buttons[i].image.color = Color.green;
-                    Debug.Log($"{i}번째 버튼의 isCorr == false 초록으로 바꿉니다.");
-                }
-
-                img = Resources.Load<Image>($"Image/Result/{i}");
-                img.gameObject.SetActive(false);
+                /*img = Resources.Load<Image>($"Image/Result/{i}");
+                img.gameObject.SetActive(false);*/
             }
-            
+
         }
 
 
@@ -81,7 +72,7 @@ public class ResultUI : MonoBehaviour
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
-        
+
         gV.gameObject.SetActive(false);
         bV.gameObject.SetActive(false);
         resultBtn.gameObject.SetActive(false);
@@ -99,5 +90,20 @@ public class ResultUI : MonoBehaviour
     {
         img.gameObject.SetActive(true);
     }
+    public void GreenRed(int idx)
+    {
+        sM = ScenesManager.GetInstance();
+        num = idx;
+        if (!sM.isCorr)
+        {
+            buttons[num].image.color = Color.red;
+            Debug.Log($"{num}번째 버튼의 isCorr == true 빨강으로 바꿉니다.");
+        }
 
+        if (sM.isCorr)
+        {
+            buttons[num].image.color = Color.green;
+            Debug.Log($"{num}번째 버튼의 isCorr == false 초록으로 바꿉니다.");
+        }
+    }
 }
