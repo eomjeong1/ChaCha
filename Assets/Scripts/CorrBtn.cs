@@ -5,18 +5,28 @@ using UnityEngine.UI;
 
 public class CorrBtn : MonoBehaviour
 {
-    public Button Cor;
+    public Button cor;
     public Button incor;
-    bool IsLose = false;
-    UIProfile profile;
+
+    public Image imgCor;
+    public Image imgIncor;
+
 
     void Start()
     {
-        Cor.onClick.AddListener(Corr);
+        //ScenesManager.GetInstance().currentGame = 5; //테스트용//
+        SetOptionSc();
+        cor.onClick.AddListener(Corr);
         incor.onClick.AddListener(Incorr);
-        
 
-        gameObject.SetActive(false);
+
+        gameObject.SetActive(false); //테스트 끝나면 켜세요//
+    }
+
+    void SetOptionSc()
+    {
+        imgCor.sprite = Resources.Load<Sprite>($"Image/Stage{ScenesManager.GetInstance().currentGame}/Cor");
+        imgIncor.sprite = Resources.Load<Sprite>($"Image/Stage{ScenesManager.GetInstance().currentGame}/Incor");
     }
 
     public void Incorr()

@@ -19,7 +19,7 @@ public class SoundTest : MonoBehaviour
     private void Start()
     {
         stickerManager = StickerManager.GetInstance();
-        //stickers = stickerManager.stickerList[4];
+        //ScenesManager.GetInstance().currentGame = 5; //테스트용//
         stickers = stickerManager.stickerList[ScenesManager.GetInstance().currentGame];
         Debug.Log($"스테이지 {ScenesManager.GetInstance().currentGame}");
         /////////이거 수정했는데 함수 안 씀/////////
