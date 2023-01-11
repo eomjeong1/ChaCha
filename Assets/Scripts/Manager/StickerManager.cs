@@ -50,13 +50,14 @@ public class StickerManager : MonoBehaviour
                 new Sticker("사격상품", "case1", false),
                 new Sticker("숙제", "case1", false),
                 new Sticker("옷가게", "case1", false),
-                new Sticker("음식점", "case1", false)
+                new Sticker("아이스크림", "case1", false)
             });
         stickerList.Add(2, new Sticker[]
             {
                 new Sticker("신호등", "case1", false),
-                new Sticker("짱구", "case1", false),
-                new Sticker("강아지", "case1", false)
+                new Sticker("친구들", "case1", false),
+                new Sticker("강아지", "case1", false),
+                new Sticker("핫도그가게", "case1", false)
             });
         stickerList.Add(3, new Sticker[]
             {
@@ -68,16 +69,17 @@ public class StickerManager : MonoBehaviour
         stickerList.Add(4, new Sticker[]
             {
                 new Sticker("집", "case1", false),
-                new Sticker("꼬깔1", "case1", false),
+                new Sticker("꼬깔", "case1", false),
                 new Sticker("꼬깔2", "case1", false),
                 new Sticker("꼬깔3", "case1", false),
                 new Sticker("포크레인", "case1", false),
-                new Sticker("안전제일경고문", "case1", false)
+                new Sticker("안전제일", "case1", false)
             });
         stickerList.Add(5, new Sticker[]
             {
                 new Sticker("옆집아저씨", "case1", false),
-                new Sticker("집", "case1", false)
+                new Sticker("집", "case1", false),
+                new Sticker("과자", "case1", false)
             });
     }
 

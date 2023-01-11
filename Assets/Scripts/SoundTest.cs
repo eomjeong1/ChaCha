@@ -19,7 +19,7 @@ public class SoundTest : MonoBehaviour
     private void Start()
     {
         stickerManager = StickerManager.GetInstance();
-        //stickers = stickerManager.stickerList[2];
+        //stickers = stickerManager.stickerList[4];
         stickers = stickerManager.stickerList[ScenesManager.GetInstance().currentGame];
         Debug.Log($"스테이지 {ScenesManager.GetInstance().currentGame}");
         /////////이거 수정했는데 함수 안 씀/////////
@@ -35,7 +35,7 @@ public class SoundTest : MonoBehaviour
         {
             Debug.Log($"{i}");
             imgSc[i] = GetComponentsInChildren<Image>()[i];
-            imgSc[i].sprite = Resources.Load<Sprite>($"Image/{stickers[i].stickerName}");
+            imgSc[i].sprite = Resources.Load<Sprite>($"Image/Stage{ScenesManager.GetInstance().currentGame}/{stickers[i].stickerName}");
             Debug.Log($"{stickers[i].stickerName} 장착");
 
             imgSc[i].gameObject.AddComponent<AudioSource>();
