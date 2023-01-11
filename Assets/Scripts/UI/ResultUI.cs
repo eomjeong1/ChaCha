@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Purchasing;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -24,8 +25,11 @@ public class ResultUI : MonoBehaviour
     public Image Score;
 
     //필요한 조건
-    public ScenesManager sM;
-    public int num;
+     ScenesManager sM;
+     GameManager gM;
+     int num;
+     int number;
+    public GameObject answerSheet;
     
 
     
@@ -57,9 +61,12 @@ public class ResultUI : MonoBehaviour
             {
                 buttons[i].gameObject.AddComponent<AudioSource>();
                 buttons[i].onClick.AddListener(ShowAnswer);
+                
                 Debug.Log("버튼 셋팅 완료");
 
-                GreenRed(i);
+                ChangeBtnUI(i);
+
+
 
                 /*img = Resources.Load<Image>($"Image/Result/{i}");
                 img.gameObject.SetActive(false);*/
@@ -67,8 +74,9 @@ public class ResultUI : MonoBehaviour
 
 
         }
+        VideoPlay();
         ScoreCulculate();
-            
+
     }
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
@@ -79,6 +87,8 @@ public class ResultUI : MonoBehaviour
         SkipBtn.gameObject.SetActive(false);
         Debug.Log("CheckOver");
         
+
+
     }
     public void ToMain()
     {
@@ -93,34 +103,42 @@ public class ResultUI : MonoBehaviour
         bV.gameObject.SetActive(false);
         bVid.Stop();
         SkipBtn.gameObject.SetActive(false);
+        
     }
     public void ShowAnswer()
     {
+        
         answer.gameObject.SetActive(true);
+        
+        
+        
+
     }
-    public void GreenRed(int idx)
+
+    public void ChangeBtnUI(int idx)
     {
         sM = ScenesManager.GetInstance();
         num = idx;
         if (!sM.isCor[num])
         {
             buttons[num].image.sprite = Resources.Load<Sprite>($"Image/Result/incorr{num+1}");
-            Debug.Log($"{num}번째 버튼의 이미지를 오답으로 바꿉니다.");
+            Debug.Log($"{num}번째 버튼의 이미지를 오답으로 바꿉니다.");         
         }
 
         if (sM.isCor[num])
         {
             buttons[num].image.sprite = Resources.Load<Sprite>($"Image/Result/corr{num+1}");
             Debug.Log($"{num}번째 버튼의 isCorr == false 정답으로 바꿉니다.");
+            answer.sprite = Resources.Load<Sprite>($"Image/Result/incorr{num + 1}");
         }
     }
 
     public void ScoreBoardClose()
     {
         ScoreBoard.gameObject.SetActive(false);
-        SkipBtn.gameObject.SetActive(true);
-        VideoPlay();
-        
+        answerSheet.SetActive(true);
+
+
     }
     public void VideoPlay()
     {
@@ -138,36 +156,36 @@ public class ResultUI : MonoBehaviour
 
         gVid.loopPointReached += CheckOver;
         bVid.loopPointReached += CheckOver;
+
     }
     public void ScoreCulculate()
     {
-        sM = ScenesManager.GetInstance();
+        gM = GameManager.GetInstance();
 
-        if (curScore >= 5)
+        if (gM.curScore == 5)
         { 
             Score.sprite = Resources.Load<Sprite>($"Image/Result/Score5");
         }
-        if (curScore >= 4)
+        if (gM.curScore == 4 )
         {
             Score.sprite = Resources.Load<Sprite>($"Image/Result/Score4");
         }
-        if (curScore >= 3)
+        if (gM.curScore == 3)
         {
             Score.sprite = Resources.Load<Sprite>($"Image/Result/Score3");
         }
-        if (curScore >= 2)
+        if (gM.curScore == 2)
         {
             Score.sprite = Resources.Load<Sprite>($"Image/Result/Score2");
         }
-        if (curScore >= 1)
+        if (gM.curScore == 1)
         {
             Score.sprite = Resources.Load<Sprite>($"Image/Result/Score1");
         }
-        if (curScore >= 0)
+        if (gM.curScore == 0)
         {
             Score.sprite = Resources.Load<Sprite>($"Image/Result/Score0");
         }
-        w
     }
 
 }
