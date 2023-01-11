@@ -16,7 +16,6 @@ public class ResultUI : MonoBehaviour
     public Image img;
     public ScenesManager sM;
     public int num;
-    int iddx;
 
     public Button[] buttons;
     // Start is called before the first frame update
@@ -55,13 +54,11 @@ public class ResultUI : MonoBehaviour
             
             for (int i = 0; i < buttons.Length; i++)
             {
-                buttons[i] = GetComponentInChildren<Button>();
                 buttons[i].gameObject.AddComponent<AudioSource>();
                 buttons[i].onClick.AddListener(ShowAnswer);
                 Debug.Log("버튼 셋팅 완료");
 
-                iddx = i;
-                GreenRed(iddx);
+                GreenRed(i);
 
                 /*img = Resources.Load<Image>($"Image/Result/{i}");
                 img.gameObject.SetActive(false);*/
