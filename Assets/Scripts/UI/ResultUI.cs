@@ -6,18 +6,28 @@ using UnityEngine.Video;
 
 public class ResultUI : MonoBehaviour
 {
+    //Button
     public Button toMainBtn;
     public Button SkipBtn;
+    public Button ScoreBoardBtn;
+    public Button[] buttons;
+
+    //VideoPlayer
     public VideoPlayer gVid;
     public VideoPlayer bVid;
     public RawImage gV;
     public RawImage bV;
-    bool isOver;
-    public Image img;
+
+    //Image
+    public Image answer;
+    public Image ScoreBoard;
+
+    //필요한 조건
     public ScenesManager sM;
     public int num;
+    
 
-    public Button[] buttons;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -30,23 +40,11 @@ public class ResultUI : MonoBehaviour
         gV.gameObject.SetActive(false);
         bV.gameObject.SetActive(false);
 
-        if (GameManager.GetInstance().curScore >= 3)
-        {
-            gV.gameObject.SetActive(true);
-            gVid.Play();
-        }
 
-        if (GameManager.GetInstance().curScore <= 2)
-        {
-            bV.gameObject.SetActive(true);
-            bVid.Play();
-        }
-
-        gVid.loopPointReached += CheckOver;
-        bVid.loopPointReached += CheckOver;
-
+        if (ScoreBoardBtn != null)
+            ScoreBoardBtn.onClick.AddListener(ScoreBoardClose);
         if (SkipBtn != null)
-            SkipBtn.onClick.AddListener(Skip);
+            SkipBtn.onClick.AddListener(SkipVideo);
         if (toMainBtn != null)
             toMainBtn.onClick.AddListener(ToMain);
         
@@ -81,9 +79,10 @@ public class ResultUI : MonoBehaviour
     public void ToMain()
     {
         ScenesManager.GetInstance().ChangeScene(Scene.Main);
+        
     }
 
-    public void Skip()
+    public void SkipVideo()
     {
         gV.gameObject.SetActive(false);
         gVid.Stop();
@@ -93,7 +92,7 @@ public class ResultUI : MonoBehaviour
     }
     public void ShowAnswer()
     {
-        img.gameObject.SetActive(true);
+        answer.gameObject.SetActive(true);
     }
     public void GreenRed(int idx)
     {
@@ -101,14 +100,37 @@ public class ResultUI : MonoBehaviour
         num = idx;
         if (!sM.isCor[num])
         {
-            buttons[num].image.color = Color.red;
-            Debug.Log($"{num}번째 버튼의 isCorr == true 빨강으로 바꿉니다.");
+            buttons[num].image.sprite = Resources.Load<Sprite>($"Image/Result/incorr{num+1}");
+            Debug.Log($"{num}번째 버튼의 이미지를 오답으로 바꿉니다.");
         }
 
         if (sM.isCor[num])
         {
-            buttons[num].image.color = Color.green;
-            Debug.Log($"{num}번째 버튼의 isCorr == false 초록으로 바꿉니다.");
+            buttons[num].image.sprite = Resources.Load<Sprite>($"Image/Result/corr{num+1}");
+            Debug.Log($"{num}번째 버튼의 isCorr == false 정답으로 바꿉니다.");
         }
+    }
+
+    public void ScoreBoardClose()
+    {
+        ScoreBoard.gameObject.SetActive(false);
+        sM = ScenesManager.GetInstance();
+        
+
+
+        if (GameManager.GetInstance().curScore >= 3)
+        {
+            gV.gameObject.SetActive(true);
+            gVid.Play();
+        }
+
+        if (GameManager.GetInstance().curScore <= 2)
+        {
+            bV.gameObject.SetActive(true);
+            bVid.Play();
+        }
+
+        gVid.loopPointReached += CheckOver;
+        bVid.loopPointReached += CheckOver;
     }
 }
