@@ -8,31 +8,40 @@ public class UIProfile : MonoBehaviour
 {
     GameManager gameManager;
 
-    public Image[] img;
+    public Image [] apple = new Image[5];
     // Start is called before the first frame update
     void Start()
     {
-        ReverseTrAng();          
-                  
+        gameManager = GameManager.GetInstance();
+
+        CreateApple();
+        LoseApple();
+
+
     }
-    void ReverseTrAng()
+    void CreateApple()
     {
-        for (int i = 0; i < img.Length; i++)
+        for (int i = 0; i < apple.Length; i++)
         {
-            img[i] = GetComponentsInChildren<Image>()[i];
-            img[i].sprite = Resources.Load<Sprite>($"Image/Apple");
+            apple[i] = GetComponentsInChildren<Image>()[i];
+            apple[i].sprite = Resources.Load<Sprite>($"Image/Apple");
             Debug.Log($"{i + 1}번째사과 생성");
 
-            if (img.Length < gameManager.curScore +1)
-            {
-                for (int x = 0; x <= 5 - i; x++)
-                {
-                    img[x].gameObject.SetActive(false);
-                    Debug.Log("사과잃음");
-                }
-            }
-            
+
         }
     }
-
+    void LoseApple()
+    {
+        for (int i = 0; i < apple.Length; i++)
+        {
+            if (i < gameManager.curScore)
+            {
+                apple[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                apple[i].sprite = Resources.Load<Sprite>($"Image/Apple");
+            }
+        }
+    }
 }
