@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 104662051}
   - component: {fileID: 104662053}
   m_Layer: 5
-  m_Name: imgCurrentGame
+  m_Name: ToMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 206410875}
   - component: {fileID: 206410874}
   m_Layer: 5
-  m_Name: Back
+  m_Name: SkipBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2595,7 +2595,7 @@ GameObject:
   - component: {fileID: 1463055474}
   - component: {fileID: 1463055473}
   m_Layer: 5
-  m_Name: txtCurrentGame
+  m_Name: toMain txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3615,10 +3615,9 @@ GameObject:
   - component: {fileID: 1761685564}
   - component: {fileID: 1761685563}
   - component: {fileID: 1761685562}
-  - component: {fileID: 1761685567}
   - component: {fileID: 1761685568}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ResultUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3730,21 +3729,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.44}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1761685567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761685561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4169d34f1139f234299af73554e69542, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  start: {fileID: 0}
-  main: {fileID: 104662053}
-  stickerManager: {fileID: 0}
 --- !u!114 &1761685568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3757,14 +3741,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea043586d5d33524eb59ac4885ad279f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Back: {fileID: 206410874}
-  resultBtn: {fileID: 1490765648}
+  toMainBtn: {fileID: 104662053}
+  SkipBtn: {fileID: 206410874}
   gVid: {fileID: 1759224512}
   bVid: {fileID: 1625056332}
   gV: {fileID: 1355992218}
   bV: {fileID: 793511279}
   img: {fileID: 1493097089}
   sM: {fileID: 0}
+  num: 0
   buttons:
   - {fileID: 1856044139}
   - {fileID: 567959586}

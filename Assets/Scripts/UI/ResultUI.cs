@@ -6,8 +6,8 @@ using UnityEngine.Video;
 
 public class ResultUI : MonoBehaviour
 {
-    public Button Back;
-    public Button resultBtn;
+    public Button toMainBtn;
+    public Button SkipBtn;
     public VideoPlayer gVid;
     public VideoPlayer bVid;
     public RawImage gV;
@@ -45,8 +45,11 @@ public class ResultUI : MonoBehaviour
         gVid.loopPointReached += CheckOver;
         bVid.loopPointReached += CheckOver;
 
-        if (resultBtn != null)
-            resultBtn.onClick.AddListener(result);
+        if (SkipBtn != null)
+            SkipBtn.onClick.AddListener(Skip);
+        if (toMainBtn != null)
+            toMainBtn.onClick.AddListener(ToMain);
+        
 
         if (buttons != null)
         {
@@ -74,16 +77,21 @@ public class ResultUI : MonoBehaviour
 
         gV.gameObject.SetActive(false);
         bV.gameObject.SetActive(false);
-        resultBtn.gameObject.SetActive(false);
+        SkipBtn.gameObject.SetActive(false);
         Debug.Log("CheckOver");
     }
-    public void result()
+    public void ToMain()
+    {
+        ScenesManager.GetInstance().ChangeScene(Scene.Main);
+    }
+
+    public void Skip()
     {
         gV.gameObject.SetActive(false);
         gVid.Stop();
         bV.gameObject.SetActive(false);
         bVid.Stop();
-        resultBtn.gameObject.SetActive(false);
+        SkipBtn.gameObject.SetActive(false);
     }
     public void ShowAnswer()
     {
