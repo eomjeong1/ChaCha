@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class MainScene : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        UIManager.GetInstance().SetEventSystem();
-        UIManager.GetInstance().OpenUI("UIMain");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        var uiManager = UIManager.GetInstance();
+        uiManager.SetEventSystem();
+        uiManager.OpenUI("UIMain");
     }
 }

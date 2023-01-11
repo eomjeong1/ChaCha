@@ -31,15 +31,6 @@ public class StickerManager : MonoBehaviour
         ChooseStickerList();
     }
 
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void ChooseStickerList()
     {
         stickerList = new Dictionary<int, Sticker[]>();
@@ -92,5 +83,4 @@ public class StickerManager : MonoBehaviour
     {
         return stickerList[stickerListIdx];
     }
-
 }
