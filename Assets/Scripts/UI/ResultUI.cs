@@ -21,6 +21,7 @@ public class ResultUI : MonoBehaviour
     //Image
     public Image answer;
     public Image ScoreBoard;
+    public Image Score;
 
     //필요한 조건
     public ScenesManager sM;
@@ -40,14 +41,13 @@ public class ResultUI : MonoBehaviour
         gV.gameObject.SetActive(false);
         bV.gameObject.SetActive(false);
 
-
         if (ScoreBoardBtn != null)
             ScoreBoardBtn.onClick.AddListener(ScoreBoardClose);
         if (SkipBtn != null)
             SkipBtn.onClick.AddListener(SkipVideo);
         if (toMainBtn != null)
             toMainBtn.onClick.AddListener(ToMain);
-        
+        SkipBtn.gameObject.SetActive(true);
 
         if (buttons != null)
         {
@@ -65,7 +65,10 @@ public class ResultUI : MonoBehaviour
                 img.gameObject.SetActive(false);*/
             }
 
+
         }
+        ScoreCulculate();
+            
     }
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
@@ -75,6 +78,7 @@ public class ResultUI : MonoBehaviour
         bV.gameObject.SetActive(false);
         SkipBtn.gameObject.SetActive(false);
         Debug.Log("CheckOver");
+        
     }
     public void ToMain()
     {
@@ -114,10 +118,12 @@ public class ResultUI : MonoBehaviour
     public void ScoreBoardClose()
     {
         ScoreBoard.gameObject.SetActive(false);
-        sM = ScenesManager.GetInstance();
+        SkipBtn.gameObject.SetActive(true);
+        VideoPlay();
         
-
-
+    }
+    public void VideoPlay()
+    {
         if (GameManager.GetInstance().curScore >= 3)
         {
             gV.gameObject.SetActive(true);
@@ -133,4 +139,35 @@ public class ResultUI : MonoBehaviour
         gVid.loopPointReached += CheckOver;
         bVid.loopPointReached += CheckOver;
     }
+    public void ScoreCulculate()
+    {
+        sM = ScenesManager.GetInstance();
+
+        if (curScore >= 5)
+        { 
+            Score.sprite = Resources.Load<Sprite>($"Image/Result/Score5");
+        }
+        if (curScore >= 4)
+        {
+            Score.sprite = Resources.Load<Sprite>($"Image/Result/Score4");
+        }
+        if (curScore >= 3)
+        {
+            Score.sprite = Resources.Load<Sprite>($"Image/Result/Score3");
+        }
+        if (curScore >= 2)
+        {
+            Score.sprite = Resources.Load<Sprite>($"Image/Result/Score2");
+        }
+        if (curScore >= 1)
+        {
+            Score.sprite = Resources.Load<Sprite>($"Image/Result/Score1");
+        }
+        if (curScore >= 0)
+        {
+            Score.sprite = Resources.Load<Sprite>($"Image/Result/Score0");
+        }
+        w
+    }
+
 }
