@@ -41,7 +41,7 @@ public class UIProfile : MonoBehaviour
         hint.gameObject.SetActive(false);
         closehint.gameObject.SetActive(true);
         hintBg.gameObject.SetActive(true);
-        hintBg.sprite = Resources.Load<Sprite>("Image/Apple");
+        hintBg.sprite = Resources.Load<Sprite>("Image/UIProfile/Hint");
     }
 
     public void CloseBtn()
@@ -56,7 +56,7 @@ public class UIProfile : MonoBehaviour
         for (int i = 0; i < apple.Length; i++)
         {
             apple[i] = GetComponentsInChildren<Image>()[i];
-            apple[i].sprite = Resources.Load<Sprite>($"Image/Apple");
+            apple[i].sprite = Resources.Load<Sprite>($"Image/UIProfile/Apple");
             Debug.Log($"{i + 1}锅掳荤苞 积己");
 
 
@@ -72,7 +72,7 @@ public class UIProfile : MonoBehaviour
             }
             else
             {
-                apple[i].sprite = Resources.Load<Sprite>($"Image/LApple");
+                apple[i].sprite = Resources.Load<Sprite>($"Image/UIProfile/LApple");
                 Debug.Log($"格见 -1");
             }
         }
