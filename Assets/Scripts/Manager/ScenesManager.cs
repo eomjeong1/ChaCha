@@ -20,7 +20,7 @@ public class ScenesManager : MonoBehaviour
 {
     public int currentGame;
     public bool isCorr;
-    public bool[] isCor;
+    public bool[] isCor = new bool[5];
 
     #region Singletone
     private static ScenesManager instance = null;
