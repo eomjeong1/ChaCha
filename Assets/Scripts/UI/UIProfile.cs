@@ -73,7 +73,7 @@ public class UIProfile : MonoBehaviour
             else
             {
                 apple[i].sprite = Resources.Load<Sprite>($"Image/LApple");
-                Debug.Log($"格见 -{5-i}");
+                Debug.Log($"格见 -1");
             }
         }
     }

@@ -13,7 +13,8 @@ public class ResultUI : MonoBehaviour
     public RawImage gV;
     public RawImage bV;
     bool isOver;
-    public Image[] imginfo;
+    public Image img;
+    public ScenesManager sM;
 
     public Button[] buttons;
     // Start is called before the first frame update
@@ -48,12 +49,29 @@ public class ResultUI : MonoBehaviour
 
         if (buttons != null)
         {
-            for (int i = 0; i < buttons.Length; i++)
+            sM = ScenesManager.GetInstance();
+           
+            for (int i = 0; i < sM.currentGame; i++)
             {
-                buttons[i] = GetComponentInChildren<Button>();
-                buttons[i].gameObject.SetActive(false);
+                buttons[i] = GetComponentInChildren<Button>();               
                 buttons[i].gameObject.AddComponent<AudioSource>();
-                
+                buttons[i].onClick.AddListener(ShowAnswer);
+                Debug.Log("버튼 셋팅 완료");
+
+                if (sM.isCorr == true)
+                {
+                    buttons[i].image.color = Color.red;
+                    Debug.Log($"{i}번째 버튼의 isCorr == true 빨강으로 바꿉니다.");
+                }
+
+                if (sM.isCorr == false)
+                {
+                    buttons[i].image.color = Color.green;
+                    Debug.Log($"{i}번째 버튼의 isCorr == false 초록으로 바꿉니다.");
+                }
+
+                img = Resources.Load<Image>($"Image/Result/{i}");
+                img.gameObject.SetActive(false);
             }
             
         }
@@ -77,9 +95,9 @@ public class ResultUI : MonoBehaviour
         bVid.Stop();
         resultBtn.gameObject.SetActive(false);
     }
-    public void CheckCor()
-    { 
-        
+    public void ShowAnswer()
+    {
+        img.gameObject.SetActive(true);
     }
 
 }
