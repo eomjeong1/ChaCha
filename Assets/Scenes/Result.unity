@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 206410875}
   - component: {fileID: 206410874}
   m_Layer: 5
-  m_Name: SkipBtn
+  m_Name: returnBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2705,7 +2705,7 @@ GameObject:
   - component: {fileID: 1490765649}
   - component: {fileID: 1490765648}
   m_Layer: 5
-  m_Name: resultBtn
+  m_Name: SkipBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3742,7 +3742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toMainBtn: {fileID: 104662053}
-  SkipBtn: {fileID: 206410874}
+  SkipBtn: {fileID: 1490765648}
   gVid: {fileID: 1759224512}
   bVid: {fileID: 1625056332}
   gV: {fileID: 1355992218}

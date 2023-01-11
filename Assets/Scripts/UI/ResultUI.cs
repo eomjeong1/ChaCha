@@ -68,8 +68,6 @@ public class ResultUI : MonoBehaviour
             }
 
         }
-
-
     }
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
@@ -101,13 +99,13 @@ public class ResultUI : MonoBehaviour
     {
         sM = ScenesManager.GetInstance();
         num = idx;
-        if (!sM.isCorr)
+        if (!sM.isCor[num])
         {
             buttons[num].image.color = Color.red;
             Debug.Log($"{num}번째 버튼의 isCorr == true 빨강으로 바꿉니다.");
         }
 
-        if (sM.isCorr)
+        if (sM.isCor[num])
         {
             buttons[num].image.color = Color.green;
             Debug.Log($"{num}번째 버튼의 isCorr == false 초록으로 바꿉니다.");
