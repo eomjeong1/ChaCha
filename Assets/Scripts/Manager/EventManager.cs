@@ -163,20 +163,13 @@ public class EventManager : MonoBehaviour
 
         UncleT.Play();
         Debug.Log("아저씨와 대화"); // 아저씨 대사 출력
-        float waitTime = 4.0f;
-        waitTime = waitTime - Time.deltaTime;
+       
         if (canRotate == false)
         {
             *//*MainCam.transform.LookAt(target2.transform);*//*
         }
 
-        if (waitTime == 0.0f)
-        {
-            Invoke("PlayerThink", 7); // 7초에 한번씩 "어떻게 할까?" 라는 플레이어 음성이 출력됨.  
-            canRotate = true;
-            lookUncle = false;
-        }
-        yield return null;
+        
     }
 
     public void TalkUncle()
