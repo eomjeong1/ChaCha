@@ -31,8 +31,8 @@ public class ResultUI : MonoBehaviour
     public string[,] AnswertxtList;
 
 
-//필요한 조건
-ScenesManager sM;
+    //필요한 조건
+    ScenesManager sM;
     GameManager gM;
     int num;
     int number;

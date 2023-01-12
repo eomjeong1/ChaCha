@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UISticker : MonoBehaviour
@@ -12,13 +13,20 @@ public class UISticker : MonoBehaviour
     public Image[] imgSc;
 
     public GameObject btnOption;
+    public bool lookUncle;
+    public bool lookGranMa;
 
     Sticker[] stickers;
 
     public StickerManager stickerManager;
+    public EventManager eventManager;
+    public ScenesManager scenesManager;
+    
     private void Start()
     {
         stickerManager = StickerManager.GetInstance();
+        eventManager = EventManager.GetInstance();
+        scenesManager = ScenesManager.GetInstance();
         //ScenesManager.GetInstance().currentGame = 4; //테스트용//
         stickers = stickerManager.stickerList[ScenesManager.GetInstance().currentGame];
         Debug.Log($"스테이지 {ScenesManager.GetInstance().currentGame}");
@@ -81,6 +89,22 @@ public class UISticker : MonoBehaviour
 
     public void OpenOption()
     {
+        
         btnOption.SetActive(true);
+        if (ScenesManager.GetInstance().currentGame == 3) 
+        {
+            lookGranMa = true;
+            eventManager.TalkGranMa();
+            Debug.Log("할머니대화시작");
+            
+        }
+        if (ScenesManager.GetInstance().currentGame == 5)
+        {
+            lookUncle = true;
+            eventManager.TalkUncle();
+            Debug.Log("아저씨대화시작");
+        }
+
+
     }
 }

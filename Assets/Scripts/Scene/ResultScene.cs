@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class ResultScene : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject go;
+
     void Start()
     {
-        UIManager.GetInstance().SetEventSystem();
-        UIManager.GetInstance().OpenUI("UIResult");
-    }
+        var uiManager = UIManager.GetInstance();
+        uiManager.SetEventSystem();
+        uiManager.OpenUI("ResultUI");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        uiManager.uiList["ResultUI"].transform.SetParent(go.transform);
     }
 }

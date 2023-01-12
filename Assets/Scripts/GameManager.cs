@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
 
     public int curScore;
     public int totalScore;
-   
-    private string playerName = null;
 
     public void Start()
     {
