@@ -20,6 +20,7 @@ public class UISticker : MonoBehaviour
     public Button[] btnSound;
     public Image[] imgSc;
     Sticker[] stickers;
+    public string[] infotxts;
 
     // 선택지 버튼
     public GameObject btnOption;
@@ -38,6 +39,7 @@ public class UISticker : MonoBehaviour
     int idx;
     StickerManager stickerManager;
     ScenesManager scenesManager;
+    UIProfile UIProfile;
 
     // 스티커 배치, 버튼, 오디오 배열
     private void Start()
@@ -105,6 +107,7 @@ public class UISticker : MonoBehaviour
         {
             if (stickers[i].isCheck == false)
                 return;
+            UIProfile.infotxt.text = infotxts[i];
         }
 
         OpenOption();
@@ -112,7 +115,7 @@ public class UISticker : MonoBehaviour
     // 옵션 버튼을 불러오는 기능
     public void OpenOption()
     {
-
+        
         // 3,5 스테이지에는 버튼의 기능을 갱신해주는 기능
         if (ScenesManager.GetInstance().currentGame == 3)
         {

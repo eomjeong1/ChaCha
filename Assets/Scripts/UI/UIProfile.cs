@@ -24,6 +24,8 @@ public class UIProfile : MonoBehaviour
         "할머니 뒤에 있는 검은 차는 뭘까요? 수상하네요!" , "지름길이라도 위험한 길은 피해서 가는 게 좋겠는데요?" , "아무리 옆집아저씨라도 혼자서 따라가면 안돼요!"};
     public Text hinttxt;
 
+    public Text infotxt;
+
     // Start is called before the first frame update
     void Start()
     {

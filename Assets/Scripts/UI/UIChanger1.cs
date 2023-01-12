@@ -25,6 +25,7 @@ public class UIChanger1 : MonoBehaviour
             curScene = "Result";
 
         vid.clip = Resources.Load<VideoClip>($"Video/stage/{curScene}");
+        vid.GetComponent<AudioSource>().clip = Resources.Load<AudioClip>("Sound/Bgm/스테이지시작");
 
         Debug.Log($"영상이 종료된 후 {curScene} 씬으로 이동합니다.");
 
