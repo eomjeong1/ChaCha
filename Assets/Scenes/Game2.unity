@@ -2129,14 +2129,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioPlayer: []
-  btnSound: []
-  imgSc: []
-  btnOption: {fileID: 652649529}
   CallPlayer: {fileID: 0}
   granMaSound: {fileID: 0}
   uncleSound: {fileID: 0}
-  stickerManager: {fileID: 0}
-  scenesManager: {fileID: 0}
+  btnSound: []
+  imgSc: []
+  btnOption: {fileID: 652649529}
+  GranMaBtn: {fileID: 0}
+  UncleBtn: {fileID: 0}
 --- !u!4 &1224617284
 Transform:
   m_ObjectHideFlags: 0

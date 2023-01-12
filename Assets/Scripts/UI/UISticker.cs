@@ -7,29 +7,37 @@ using UnityEngine.UI;
 
 public class UISticker : MonoBehaviour
 {
+    // 스티커 오디오
     public AudioSource[] audioPlayer;
     AudioClip[] audioClips;
-    public Button[] btnSound;
-    public Image[] imgSc;
 
-    public GameObject btnOption;
-
-    bool lookGranMa;
-    bool lookUncle;
+    // 대화 이벤트 오디오
     public AudioSource CallPlayer;
     public AudioClip granMaSound;
     public AudioClip uncleSound;
-    public Image GranMaBtn;
-    public Image UncleBtn;
-    int idx;
+
+    // 스티커 버튼, 이미지 배열
+    public Button[] btnSound;
+    public Image[] imgSc;
+    Sticker[] stickers;
+
+    // 선택지 버튼
+    public GameObject btnOption;
+
+    // 할머니, 삼촌 구분 불리언
+    bool lookGranMa;
+    bool lookUncle;
     bool GCheckAgain;
     bool UCheckAgain;
 
-    Sticker[] stickers;
+    // 갱신된 할머니, 삼촌 버튼
+    public Image GranMaBtn;
+    public Image UncleBtn;
 
-    public StickerManager stickerManager;
-
-    public ScenesManager scenesManager;
+    // 필요한 조건  
+    int idx;
+    StickerManager stickerManager;
+    ScenesManager scenesManager;
 
     // 스티커 배치, 버튼, 오디오 배열
     private void Start()

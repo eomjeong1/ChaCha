@@ -3125,16 +3125,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioPlayer: []
+  CallPlayer: {fileID: 2005724373}
+  granMaSound: {fileID: 8300000, guid: f35df6fc9f48f5e40aa9cca231a35280, type: 3}
+  uncleSound: {fileID: 0}
   btnSound: []
   imgSc: []
   btnOption: {fileID: 1877308391}
-  CallPlayer: {fileID: 2005724373}
-  granMaSound: {fileID: 8300000, guid: 0789577ec77413547b0ce6e92073d422, type: 3}
-  uncleSound: {fileID: 8300000, guid: e701041fc8bde7e43bdfdeaf4bfe7685, type: 3}
   GranMaBtn: {fileID: 370239190}
   UncleBtn: {fileID: 0}
-  stickerManager: {fileID: 0}
-  scenesManager: {fileID: 0}
 --- !u!4 &2005724372
 Transform:
   m_ObjectHideFlags: 0
@@ -3164,7 +3162,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0789577ec77413547b0ce6e92073d422, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f35df6fc9f48f5e40aa9cca231a35280, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

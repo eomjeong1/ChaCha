@@ -48,7 +48,7 @@ public class ResultUI : MonoBehaviour
     void Start()
     {
         
-    gV = GetComponentsInChildren<RawImage>()[0];
+        gV = GetComponentsInChildren<RawImage>()[0];
         bV = GetComponentsInChildren<RawImage>()[1];
 
         gVid = GetComponentsInChildren<VideoPlayer>()[0];
@@ -71,12 +71,9 @@ public class ResultUI : MonoBehaviour
             for (int i = 0; i < buttons.Length; i++)
             {
                 int index = i;
-                buttons[index].gameObject.AddComponent<AudioSource>();  
+                buttons[index].gameObject.AddComponent<AudioSource>();
                 buttons[index].onClick.AddListener(() => this.SoundPlay(index));
-                audioPlayer[index] = buttons[index].gameObject.GetComponent<AudioSource>();
-                audioClips[index] = Resources.Load<AudioClip>($"Sound/Nar{index}");
-                audioPlayer[index].clip = audioClips[index];
-                audioPlayer[index].Stop();
+                
                 buttons[index].onClick.AddListener(() => this.ShowAnswer(index));
 
                 Debug.Log("버튼 셋팅 완료");
@@ -103,6 +100,7 @@ public class ResultUI : MonoBehaviour
         SkipBtn.gameObject.SetActive(false);
         Debug.Log("CheckOver");
         answerSheet.gameObject.SetActive(false);
+        toMainBtn.gameObject.SetActive(true);
 
 
 
@@ -124,6 +122,7 @@ public class ResultUI : MonoBehaviour
         bVid.Stop();
         SkipBtn.gameObject.SetActive(false);
         answerSheet.gameObject.SetActive(false);
+        toMainBtn.gameObject.SetActive(true);
 
 
     }
@@ -147,7 +146,8 @@ public class ResultUI : MonoBehaviour
         string v = AnswertxtList[index, 0].ToString();
         Answertxt1.text = v;
         Debug.Log($"정답{index}");
-
+        Answertxt1.gameObject.GetComponent<AudioSource>().clip = Resources.Load<AudioClip>($"Sound/Result/Nar{index}");
+        Answertxt1.gameObject.GetComponent<AudioSource>().Play();
         string y = AnswertxtList[index, 1].ToString();
         Answertxt2.text = y;
         Debug.Log($"해설1 - {index}");
@@ -183,12 +183,14 @@ public class ResultUI : MonoBehaviour
         if (GameManager.GetInstance().curScore >= 3)
         {
             gV.gameObject.SetActive(true);
+            gV.GetComponent<AudioSource>().Play();
             gVid.Play();
         }
 
         if (GameManager.GetInstance().curScore <= 2)
         {
             bV.gameObject.SetActive(true);
+            bV.GetComponent<AudioSource>().Play();
             bVid.Play();
         }
 
