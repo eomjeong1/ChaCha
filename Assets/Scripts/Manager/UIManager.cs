@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    Dictionary<string, GameObject> uiList = new Dictionary<string, GameObject>();
+    public Dictionary<string, GameObject> uiList = new Dictionary<string, GameObject>();
     public void OpenUI(string uiName)
     {
         if (uiList.ContainsKey(uiName) == false)
