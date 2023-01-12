@@ -13,20 +13,24 @@ public class UISticker : MonoBehaviour
     public Image[] imgSc;
 
     public GameObject btnOption;
-    public bool lookUncle = false;
-    public bool lookGranMa = false;
+
+    bool lookGranMa;
+    bool lookUncle;
+    public AudioSource CallPlayer;
+    public AudioClip granMaSound;
+    public AudioClip uncleSound;
 
     Sticker[] stickers;
 
     public StickerManager stickerManager;
-    public EventManager eventManager;
+    
     public ScenesManager scenesManager;
     
     private void Start()
     {
         stickerManager = StickerManager.GetInstance();
+        
        
-        scenesManager = ScenesManager.GetInstance();
         //ScenesManager.GetInstance().currentGame = 4; //테스트용//
         stickers = stickerManager.stickerList[ScenesManager.GetInstance().currentGame];
         Debug.Log($"스테이지 {ScenesManager.GetInstance().currentGame}");
@@ -90,19 +94,52 @@ public class UISticker : MonoBehaviour
     public void OpenOption()
     {
         
-        btnOption.SetActive(true);
+        
         if (ScenesManager.GetInstance().currentGame == 3) 
-        {
+        {           
             lookGranMa = true;
             Debug.Log("lookGranMa = true");
-            
+            GrandMaCall();
+
         }
         if (ScenesManager.GetInstance().currentGame == 5)
         {
             lookUncle = true;
             Debug.Log("lookUncle = true");
+            UncleCall();
         }
+        else
+        {
+            btnOption.SetActive(true);
+        }
+    }
+    IEnumerator GrandMaCall()
+    {
+        CallPlayer.clip = granMaSound;
+        CallPlayer.Play();
+        float waitTime = 4.0f;
+        waitTime = waitTime - Time.deltaTime;
+        if (waitTime == 0.0f)
+        {
+            btnOption.SetActive(true);
+            lookGranMa = false;
+        }
+        yield return null;
 
+    }
 
+    IEnumerator UncleCall()
+    {
+        CallPlayer.clip = uncleSound;
+        CallPlayer.Play();
+        float waitTime = 4.0f;
+        waitTime = waitTime - Time.deltaTime;
+        if (waitTime == 0.0f)
+        {
+            btnOption.SetActive(true); 
+            lookUncle = false;
+        }
+        yield return null;
+        
     }
 }
