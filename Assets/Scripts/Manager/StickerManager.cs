@@ -37,7 +37,7 @@ public class StickerManager : MonoBehaviour
         stickerList.Add(1, new Sticker[]
             {
                 new Sticker("짱오락실", "case1", false),
-                new Sticker("오락기", "case1", false),
+                new Sticker("오락기", "오락기사운드", false),
                 new Sticker("상품", "case1", false),
                 new Sticker("숙제", "case1", false),
                 new Sticker("초록망토", "case1", false),
