@@ -19,6 +19,7 @@ public class UISticker : MonoBehaviour
     public AudioSource CallPlayer;
     public AudioClip granMaSound;
     public AudioClip uncleSound;
+    int idx;
 
     Sticker[] stickers;
 
@@ -66,7 +67,9 @@ public class UISticker : MonoBehaviour
 
     public void PlaySound(int num)
     {
+        audioPlayer[idx].Stop();
         audioPlayer[num].Play();
+        idx = num;
     }
 
     public void IsCheckTrue(int num)
@@ -113,33 +116,35 @@ public class UISticker : MonoBehaviour
             btnOption.SetActive(true);
         }
     }
-    IEnumerator GrandMaCall()
+    void GrandMaCall()
     {
         CallPlayer.clip = granMaSound;
         CallPlayer.Play();
-        float waitTime = 4.0f;
+        float waitTime = 3.0f;       
         waitTime = waitTime - Time.deltaTime;
         if (waitTime == 0.0f)
         {
             btnOption.SetActive(true);
             lookGranMa = false;
+            Debug.Log("lookGranMa = false");
         }
-        yield return null;
+
 
     }
 
-    IEnumerator UncleCall()
+    void UncleCall()
     {
         CallPlayer.clip = uncleSound;
         CallPlayer.Play();
-        float waitTime = 4.0f;
+        float waitTime = 3.0f;
         waitTime = waitTime - Time.deltaTime;
         if (waitTime == 0.0f)
         {
             btnOption.SetActive(true); 
             lookUncle = false;
+            Debug.Log("lookUncle = false");
         }
-        yield return null;
+       
         
     }
 }
