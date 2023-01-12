@@ -1296,7 +1296,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &7249326602593018965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1363,6 +1363,7 @@ MonoBehaviour:
   Answertxt1: {fileID: 7249326602694642345}
   Answertxt2: {fileID: 7249326601108277086}
   Answertxt3: {fileID: 7249326601799118881}
+  audioPlayer: []
   answerSheet: {fileID: 7249326602617819710}
 --- !u!1 &7249326602597090980
 GameObject:

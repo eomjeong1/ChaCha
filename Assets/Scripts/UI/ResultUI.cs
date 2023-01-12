@@ -30,12 +30,16 @@ public class ResultUI : MonoBehaviour
     // 정답 텍스트배열
     public string[,] AnswertxtList;
 
+    // 오디오
+    public AudioSource[] audioPlayer;
+    AudioClip[] audioClips; 
 
     //필요한 조건
     ScenesManager sM;
     GameManager gM;
     int num;
     int number;
+    int idx;
     public GameObject answerSheet;
 
 
@@ -67,7 +71,12 @@ public class ResultUI : MonoBehaviour
             for (int i = 0; i < buttons.Length; i++)
             {
                 int index = i;
-                buttons[index].gameObject.AddComponent<AudioSource>();
+                buttons[index].gameObject.AddComponent<AudioSource>();  
+                buttons[index].onClick.AddListener(() => this.SoundPlay(index));
+                audioPlayer[index] = buttons[index].gameObject.GetComponent<AudioSource>();
+                audioClips[index] = Resources.Load<AudioClip>($"Sound/Nar{index}");
+                audioPlayer[index].clip = audioClips[index];
+                audioPlayer[index].Stop();
                 buttons[index].onClick.AddListener(() => this.ShowAnswer(index));
 
                 Debug.Log("버튼 셋팅 완료");
@@ -78,7 +87,14 @@ public class ResultUI : MonoBehaviour
         VideoPlay();
         ScoreCulculate();
     }
-
+    // 오디오 플레이 함수
+    public void SoundPlay(int index)
+    {
+        audioPlayer[idx].Stop();
+        audioPlayer[index].Play();
+        idx = index;
+    }
+    // 비디오 끝나면 실행하는 함수
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
 
@@ -91,12 +107,15 @@ public class ResultUI : MonoBehaviour
 
 
     }
+
+    // 메인으로 돌아가는 버튼
     public void ToMain()
     {
         ScenesManager.GetInstance().ChangeScene(Scene.Main);
 
     }
 
+    // 비디오 스킵버튼
     public void SkipVideo()
     {
         gV.gameObject.SetActive(false);
@@ -108,6 +127,8 @@ public class ResultUI : MonoBehaviour
 
 
     }
+
+    // 정답 텍스트 불러오는 기능.
     public void ShowAnswer(int index)
     {
         string[,] AnswertxtList = new string[,]{
@@ -138,6 +159,7 @@ public class ResultUI : MonoBehaviour
 
     }
 
+    // 정답 버튼 이미지 변경
     public void ChangeBtnUI(int idx)
     {
         sM = ScenesManager.GetInstance();
@@ -155,6 +177,7 @@ public class ResultUI : MonoBehaviour
         }
     }
 
+    // 비디오를 실행하는 함수
     public void VideoPlay()
     {
         if (GameManager.GetInstance().curScore >= 3)
@@ -173,6 +196,8 @@ public class ResultUI : MonoBehaviour
         bVid.loopPointReached += CheckOver;
 
     }
+
+    // 점수 이미지 출력
     public void ScoreCulculate()
     {
         gM = GameManager.GetInstance();

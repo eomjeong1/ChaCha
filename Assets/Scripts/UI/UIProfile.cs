@@ -16,7 +16,6 @@ public class UIProfile : MonoBehaviour
     string[] hinttxtList = { "주변에 하고 싶은 것, 먹고 싶은 것들이 있지만 얼른 집으로 가야해요.", "초록불 신호가 얼마 남지 않았다면 다음 신호를 기다렸다가 지나가는 건 어떨까요?", 
         "할머니 뒤에 있는 검은 차는 뭘까요? 수상하네요!" , "지름길이라도 위험한 길은 피해서 가는 게 좋겠는데요?" , "아무리 옆집아저씨라도 혼자서 따라가면 안돼요!"};
 
-
     public Image[] apple = new Image[5];
     // Start is called before the first frame update
     void Start()
@@ -43,8 +42,7 @@ public class UIProfile : MonoBehaviour
         GetHinttxt();
     }
     
-
-
+    // 힌트버튼 조작
     public void HintBtn()
     { 
         hint.gameObject.SetActive(false);
@@ -53,6 +51,7 @@ public class UIProfile : MonoBehaviour
         hintBg.sprite = Resources.Load<Sprite>("Image/UIProfile/Hint");
     }
 
+    // 힌트 닫기버튼 조작
     public void CloseBtn()
     {
         hint.gameObject.SetActive(true);
@@ -60,6 +59,7 @@ public class UIProfile : MonoBehaviour
         hintBg.gameObject.SetActive(false);
     }
 
+    // 목숨 표현하기
     void CreateApple()
     {
         for (int i = 0; i < apple.Length; i++)
@@ -71,6 +71,8 @@ public class UIProfile : MonoBehaviour
 
         }
     }
+
+    // 목숨 잃는 것 표현하기
     void LoseApple()
     {
         for (int i = 0; i < apple.Length; i++)
@@ -86,6 +88,8 @@ public class UIProfile : MonoBehaviour
             }
         }
     }
+
+    // 힌트 텍스트 배열하기
     public void GetHinttxt()
     {
         sM = ScenesManager.GetInstance();

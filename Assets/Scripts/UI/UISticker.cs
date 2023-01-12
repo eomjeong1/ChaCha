@@ -31,6 +31,7 @@ public class UISticker : MonoBehaviour
 
     public ScenesManager scenesManager;
 
+    // 스티커 배치, 버튼, 오디오 배열
     private void Start()
     {
         stickerManager = StickerManager.GetInstance();
@@ -68,7 +69,8 @@ public class UISticker : MonoBehaviour
             btnSound[i].onClick.AddListener(IsCheckBool);
         }
     }
-
+    
+    // 오디오 플레이 함수
     public void PlaySound(int num)
     {
         audioPlayer[idx].Stop();
@@ -76,12 +78,14 @@ public class UISticker : MonoBehaviour
         idx = num;
     }
 
+    // 스티커를 눌렀는지 확인해주는 bool
     public void IsCheckTrue(int num)
     {
         stickers[num].isCheck = true;
         Debug.Log($"{stickers[num].stickerName}를 확인했습니다.");
     }
 
+    // 스티커를 전부 눌러야 옵션 버튼이 뜨게 하는 기능.
     public void IsCheckBool()
     {
         //for (int i = 0; i < stickers.Length; i++)
@@ -97,11 +101,11 @@ public class UISticker : MonoBehaviour
 
         OpenOption();
     }
-
+    // 옵션 버튼을 불러오는 기능
     public void OpenOption()
     {
 
-
+        // 3,5 스테이지에는 버튼의 기능을 갱신해주는 기능
         if (ScenesManager.GetInstance().currentGame == 3)
         {
             btnOption.SetActive(false);
@@ -111,10 +115,6 @@ public class UISticker : MonoBehaviour
             GranMaBtn.gameObject.GetComponent<Button>().onClick.AddListener(GranMaAgain);
             
             GCheckBool();
-            
-            
-            
-
         }
         else if (ScenesManager.GetInstance().currentGame == 5)
         {
@@ -131,15 +131,36 @@ public class UISticker : MonoBehaviour
         else 
         {
             btnOption.SetActive(true);
-            Debug.Log("스테이지 3,5 아님 선택지 on");
+            Debug.Log("스테이지 3,5 아님. 선택지 on");
         }
     }
+
+    // 다시 할머니 눌렀을 때 코루틴을 실행할 수 있는 조건 완성;
     public void GranMaAgain()
     {
         GCheckAgain = true;
         GCheckBool();
        
     }
+    // 할머니 코루틴 조건이 완성됐다면 코루틴 실행하는 함수 실행.
+    public void GCheckBool()
+    {
+        if (GCheckAgain == true)
+        {
+            GrandMaCall();
+        }
+        else
+            return;
+    }
+
+    // 다시 삼촌 눌렀을 때 코루틴을 실행할 수 있는 조건 완성;
+    public void UncleAgain()
+    {
+        UCheckAgain = true;
+        UCheckBool();
+    }
+
+    // 삼촌 코루틴 조건이 완성됐다면 코루틴 실행하는 함수 실행.
     public void UCheckBool()
     {
         if (UCheckAgain == true)
@@ -150,21 +171,8 @@ public class UISticker : MonoBehaviour
             return;
 
     }
-    public void GCheckBool()
-    {
-        if (GCheckAgain == true)
-        {
-            GrandMaCall();
-        }
-        else
-            return;
-    }
-    public void UncleAgain()
-    {
-        UCheckAgain = true;
-        UCheckBool();
-    }
 
+    // 할머니 대화 오디오 실행시키고 코루틴 실행시키는 함수
     void GrandMaCall()
     {
         
@@ -177,7 +185,7 @@ public class UISticker : MonoBehaviour
 
 
     }
-
+    // 삼촌 대화 오디오 실행시키고 코루틴 실행시키는 함수
     void UncleCall()
     {
         CallPlayer.clip = uncleSound;
@@ -188,6 +196,8 @@ public class UISticker : MonoBehaviour
         Debug.Log("lookUncle = false");
 
     }
+
+    // 대화 오디오가 끝날때까지 옵션 버튼숨기기 코루틴
     IEnumerator TalkWait()
     {
         while (true)
@@ -203,13 +213,7 @@ public class UISticker : MonoBehaviour
                 StopAllCoroutines();
                 btnOption.SetActive(true);
                 Debug.Log("선택지켜기");
-            }
-                
-
-
-        }
-       
-
-        
+            }              
+        }       
     }
 }
