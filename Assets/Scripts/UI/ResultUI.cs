@@ -20,8 +20,6 @@ public class ResultUI : MonoBehaviour
     public RawImage bV;
 
     //Image
-    public Image answer;
-    public Image ScoreBoard;
     public Image Score;
     public Image Stnum;
 
@@ -146,16 +144,14 @@ ScenesManager sM;
         num = idx;
         if (!sM.isCor[num])
         {
-            buttons[num].image.sprite = Resources.Load<Sprite>($"Image/Result/corr{num + 1}");
-            answer.sprite = Resources.Load<Sprite>($"Image/Result/corr{num + 1}");
+            buttons[num].image.sprite = Resources.Load<Sprite>($"Image/Result/incorr{num + 1}");           
             Debug.Log($"{num}번째 버튼의 이미지를 오답으로 바꿉니다.");
         }
 
         if (sM.isCor[num])
-        {
-            buttons[num].image.sprite = Resources.Load<Sprite>($"Image/Result/incorr{num + 1}");
-            Debug.Log($"{num}번째 버튼의 isCorr == false 정답으로 바꿉니다.");
-            answer.sprite = Resources.Load<Sprite>($"Image/Result/incorr{num + 1}");
+        {           
+            Debug.Log($"{num}번째 버튼의 isCorr == false 정답으로 바꿉니다.");           
+            buttons[num].image.sprite = Resources.Load<Sprite>($"Image/Result/corr{num + 1}");            
         }
     }
 

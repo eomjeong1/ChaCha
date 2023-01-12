@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3375382639627171042}
   - component: {fileID: 3375382639627171041}
   - component: {fileID: 3375382639627171040}
+  - component: {fileID: 1509193737989051638}
   m_Layer: 5
   m_Name: btnIncor
   m_TagString: Untagged
@@ -120,6 +121,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!111 &1509193737989051638
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375382639627171046}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c728200ed9f7b5b469e176a6e3a6c3d0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c728200ed9f7b5b469e176a6e3a6c3d0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &3375382639973869429
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +198,7 @@ GameObject:
   - component: {fileID: 3375382640255779449}
   - component: {fileID: 3375382640255779448}
   - component: {fileID: 3375382640255779455}
+  - component: {fileID: 923775673345314974}
   m_Layer: 5
   m_Name: btnCorr
   m_TagString: Untagged
@@ -289,6 +307,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!111 &923775673345314974
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375382640255779453}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c728200ed9f7b5b469e176a6e3a6c3d0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c728200ed9f7b5b469e176a6e3a6c3d0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &3375382640473927318
 GameObject:
   m_ObjectHideFlags: 0
