@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\uBD09\uACE0\uCC28"
       objectReference: {fileID: 0}
+    - target: {fileID: 1161425870988390805, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1161425870988390811, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -717,6 +721,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1161425870988390811, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
   m_PrefabInstance: {fileID: 370239188}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &370239190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1161425872016976261, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
+  m_PrefabInstance: {fileID: 370239188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &394287592
 GameObject:
   m_ObjectHideFlags: 0
@@ -3114,8 +3129,10 @@ MonoBehaviour:
   imgSc: []
   btnOption: {fileID: 1877308391}
   CallPlayer: {fileID: 2005724373}
-  granMaSound: {fileID: 8300000, guid: 94cdce222fbacc743b82faf097fac215, type: 3}
-  uncleSound: {fileID: 8300000, guid: d04ba796cd058f1458c35009e35fdf71, type: 3}
+  granMaSound: {fileID: 8300000, guid: 0789577ec77413547b0ce6e92073d422, type: 3}
+  uncleSound: {fileID: 8300000, guid: e701041fc8bde7e43bdfdeaf4bfe7685, type: 3}
+  GranMaBtn: {fileID: 370239190}
+  UncleBtn: {fileID: 0}
   stickerManager: {fileID: 0}
   scenesManager: {fileID: 0}
 --- !u!4 &2005724372
@@ -3147,7 +3164,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 94cdce222fbacc743b82faf097fac215, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0789577ec77413547b0ce6e92073d422, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

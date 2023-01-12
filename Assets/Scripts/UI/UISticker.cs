@@ -19,20 +19,24 @@ public class UISticker : MonoBehaviour
     public AudioSource CallPlayer;
     public AudioClip granMaSound;
     public AudioClip uncleSound;
+    public Image GranMaBtn;
+    public Image UncleBtn;
     int idx;
+    bool GCheckAgain;
+    bool UCheckAgain;
 
     Sticker[] stickers;
 
     public StickerManager stickerManager;
-    
+
     public ScenesManager scenesManager;
-    
+
     private void Start()
     {
         stickerManager = StickerManager.GetInstance();
-        
-       
-        //ScenesManager.GetInstance().currentGame = 4; //테스트용//
+
+
+        //ScenesManager.GetInstance().currentGame = 5; //테스트용//
         stickers = stickerManager.stickerList[ScenesManager.GetInstance().currentGame];
         Debug.Log($"스테이지 {ScenesManager.GetInstance().currentGame}");
         /////////이거 수정했는데 함수 안 씀/////////
@@ -59,8 +63,8 @@ public class UISticker : MonoBehaviour
 
             int idx = i;
             btnSound[i] = imgSc[i].gameObject.GetComponent<Button>();
-            btnSound[i].onClick.AddListener(()=> { PlaySound(idx); });
-            btnSound[i].onClick.AddListener(()=> { IsCheckTrue(idx); });
+            btnSound[i].onClick.AddListener(() => { PlaySound(idx); });
+            btnSound[i].onClick.AddListener(() => { IsCheckTrue(idx); });
             btnSound[i].onClick.AddListener(IsCheckBool);
         }
     }
@@ -96,38 +100,80 @@ public class UISticker : MonoBehaviour
 
     public void OpenOption()
     {
-        
-        
-        if (ScenesManager.GetInstance().currentGame == 3) 
-        {           
+
+
+        if (ScenesManager.GetInstance().currentGame == 3)
+        {
+            btnOption.SetActive(false);
             lookGranMa = true;
             Debug.Log("lookGranMa = true");
-            GrandMaCall();
+            GranMaBtn.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
+            GranMaBtn.gameObject.GetComponent<Button>().onClick.AddListener(GranMaAgain);
+            
+            GCheckBool();
+            
+            
+            
 
         }
-        if (ScenesManager.GetInstance().currentGame == 5)
+        else if (ScenesManager.GetInstance().currentGame == 5)
         {
+            btnOption.SetActive(false);
             lookUncle = true;
             Debug.Log("lookUncle = true");
+            UncleBtn.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
+            UncleBtn.gameObject.GetComponent<Button>().onClick.AddListener(UncleAgain);
+            
+            UCheckBool();
+            
+            
+        }
+        else 
+        {
+            btnOption.SetActive(true);
+            Debug.Log("스테이지 3,5 아님 선택지 on");
+        }
+    }
+    public void GranMaAgain()
+    {
+        GCheckAgain = true;
+        GCheckBool();
+       
+    }
+    public void UCheckBool()
+    {
+        if (UCheckAgain == true)
+        {
             UncleCall();
         }
         else
-        {
-            btnOption.SetActive(true);
-        }
+            return;
+
     }
+    public void GCheckBool()
+    {
+        if (GCheckAgain == true)
+        {
+            GrandMaCall();
+        }
+        else
+            return;
+    }
+    public void UncleAgain()
+    {
+        UCheckAgain = true;
+        UCheckBool();
+    }
+
     void GrandMaCall()
     {
+        
         CallPlayer.clip = granMaSound;
         CallPlayer.Play();
-        float waitTime = 3.0f;       
-        waitTime = waitTime - Time.deltaTime;
-        if (waitTime == 0.0f)
-        {
-            btnOption.SetActive(true);
-            lookGranMa = false;
+        StartCoroutine(TalkWait());
+        
+        lookGranMa = false;
             Debug.Log("lookGranMa = false");
-        }
 
 
     }
@@ -136,15 +182,34 @@ public class UISticker : MonoBehaviour
     {
         CallPlayer.clip = uncleSound;
         CallPlayer.Play();
-        float waitTime = 3.0f;
-        waitTime = waitTime - Time.deltaTime;
-        if (waitTime == 0.0f)
+        StartCoroutine(TalkWait());
+        
+        lookUncle = false;
+        Debug.Log("lookUncle = false");
+
+    }
+    IEnumerator TalkWait()
+    {
+        while (true)
         {
-            btnOption.SetActive(true); 
-            lookUncle = false;
-            Debug.Log("lookUncle = false");
+            yield return new WaitForSeconds(0.0f);
+            if (CallPlayer.isPlaying)
+            {
+                btnOption.SetActive(false);
+                
+            }
+            else
+            {
+                StopAllCoroutines();
+                btnOption.SetActive(true);
+                Debug.Log("선택지켜기");
+            }
+                
+
+
         }
        
+
         
     }
 }

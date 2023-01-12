@@ -27,7 +27,7 @@ public class ResultUI : MonoBehaviour
     public Text Answertxt2;
     public Text Answertxt3;
 
-
+    // 정답 텍스트배열
     public string[,] AnswertxtList;
 
 

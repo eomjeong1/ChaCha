@@ -1796,7 +1796,9 @@ MonoBehaviour:
   btnOption: {fileID: 1606908176}
   CallPlayer: {fileID: 1339418417}
   granMaSound: {fileID: 0}
-  uncleSound: {fileID: 8300000, guid: d04ba796cd058f1458c35009e35fdf71, type: 3}
+  uncleSound: {fileID: 8300000, guid: e701041fc8bde7e43bdfdeaf4bfe7685, type: 3}
+  GranMaBtn: {fileID: 0}
+  UncleBtn: {fileID: 1820993475}
   stickerManager: {fileID: 0}
   scenesManager: {fileID: 0}
 --- !u!4 &1339418416
@@ -1828,7 +1830,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d04ba796cd058f1458c35009e35fdf71, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e701041fc8bde7e43bdfdeaf4bfe7685, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2830,6 +2832,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1161425870988390811, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
   m_PrefabInstance: {fileID: 1820993473}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1820993475 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1161425872016976261, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
+  m_PrefabInstance: {fileID: 1820993473}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1826468818
 PrefabInstance:
   m_ObjectHideFlags: 0
