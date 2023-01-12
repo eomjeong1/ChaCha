@@ -270,7 +270,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1161425870988390801, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
       propertyPath: m_Name
-      value: "\uAF2C\uAE542\uACF5"
+      value: "\uCD95\uAD6C\uACF5"
       objectReference: {fileID: 0}
     - target: {fileID: 1161425870988390811, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
       propertyPath: m_Pivot.x
@@ -687,7 +687,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1161425870988390801, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
       propertyPath: m_Name
-      value: "\uAF2C\uAE543\uBAA8\uB798"
+      value: "\uACE0\uC591\uC774"
       objectReference: {fileID: 0}
     - target: {fileID: 1161425870988390811, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
       propertyPath: m_Pivot.x
