@@ -13,8 +13,8 @@ public class UISticker : MonoBehaviour
     public Image[] imgSc;
 
     public GameObject btnOption;
-    public bool lookUncle;
-    public bool lookGranMa;
+    public bool lookUncle = false;
+    public bool lookGranMa = false;
 
     Sticker[] stickers;
 
@@ -25,7 +25,7 @@ public class UISticker : MonoBehaviour
     private void Start()
     {
         stickerManager = StickerManager.GetInstance();
-        eventManager = EventManager.GetInstance();
+       
         scenesManager = ScenesManager.GetInstance();
         //ScenesManager.GetInstance().currentGame = 4; //테스트용//
         stickers = stickerManager.stickerList[ScenesManager.GetInstance().currentGame];
@@ -94,15 +94,13 @@ public class UISticker : MonoBehaviour
         if (ScenesManager.GetInstance().currentGame == 3) 
         {
             lookGranMa = true;
-            eventManager.TalkGranMa();
-            Debug.Log("할머니대화시작");
+            Debug.Log("lookGranMa = true");
             
         }
         if (ScenesManager.GetInstance().currentGame == 5)
         {
             lookUncle = true;
-            eventManager.TalkUncle();
-            Debug.Log("아저씨대화시작");
+            Debug.Log("lookUncle = true");
         }
 
 

@@ -21,6 +21,8 @@ public class ScenesManager : MonoBehaviour
     public int currentGame;
     public bool isCorr;
     public bool[] isCor = new bool[5];
+    public Transform Obj;
+    
 
     #region Singletone
     private static ScenesManager instance = null;
@@ -61,6 +63,11 @@ public class ScenesManager : MonoBehaviour
     void ResetSetting()
     {
         UIManager.GetInstance().ClearList();
+    }
+
+    private GameObject GetGameObject()
+    {
+        return gameObject;
     }
     #endregion
 
