@@ -17,7 +17,7 @@ public class UIChanger1 : MonoBehaviour
         this.currentGame = ScenesManager.GetInstance().currentGame;
 
         btnSkip.onClick.AddListener(OnSkip);
-        //btnSkip.gameObject.SetActive(false);
+        btnSkip.gameObject.SetActive(false);
         vid = GetComponentInChildren<VideoPlayer>();
 
         curScene = $"Game{currentGame}";
