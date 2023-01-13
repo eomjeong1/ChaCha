@@ -20,6 +20,7 @@ public class UIChanger2 : MonoBehaviour
         this.currentGame = ScenesManager.GetInstance().currentGame;
 
         btnSkip.onClick.AddListener(OnSkip);
+        btnSkip.gameObject.SetActive(false);
         vid = GetComponentInChildren<VideoPlayer>();
 
         if (isCorr)
