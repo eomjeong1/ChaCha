@@ -30,10 +30,6 @@ public class UISticker : MonoBehaviour
     bool lookUncle;
     bool GCheckAgain;
     bool UCheckAgain;
-    
-
-    // UI프로필 디렉션 텍스트 불리언
-    public bool needDirect;
 
     // 갱신된 할머니, 삼촌 버튼
     public Image GranMaBtn;
@@ -43,7 +39,6 @@ public class UISticker : MonoBehaviour
     int idx;
     StickerManager stickerManager;
     ScenesManager scenesManager;
-    UIProfile UIProfile;
 
     // 스티커 배치, 버튼, 오디오 배열
     private void Start()
@@ -112,7 +107,7 @@ public class UISticker : MonoBehaviour
                 return;            
             
         }
-        needDirect = true;
+        scenesManager.needDirect = true;
         Debug.Log("디렉션 줘");
         OpenOption();
     }

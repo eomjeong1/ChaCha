@@ -22,6 +22,7 @@ public class ScenesManager : MonoBehaviour
     public bool isCorr;
     public bool[] isCor = new bool[5];
     public Transform Obj;
+    public bool needDirect;
     
 
     #region Singletone

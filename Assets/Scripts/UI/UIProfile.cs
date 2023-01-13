@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIProfile : MonoBehaviour
@@ -53,28 +54,30 @@ public class UIProfile : MonoBehaviour
         CreateApple();
         LoseApple();
         GetHinttxt();
-        StartCoroutine(CheckDirect());
+        //StartCoroutine(CheckDirect());
     }
-    IEnumerator CheckDirect()
+    /*IEnumerator CheckDirect()
     {
-        while (false)
-        {           uiSticker = null;
-            if (uiSticker == null)
-                Debug.Log("null");
-            if (uiSticker.needDirect)
+        while (true)
+        {
+            yield return true;
+            Debug.Log("코루틴");               
+            if (sM.needDirect == true)
             {
-                uiSticker.needDirect = false;
+                directtxt.gameObject.SetActive(true);
                 directtxt.text = directtxts[sM.currentGame - 1];
                 Debug.Log("디렉션 해줌");
                 break;
             }
             else
             {
-                directtxt.gameObject.SetActive(false);
+                GameObject gameObject1 = directtxt.gameObject;
+                gameObject1.SetActive(false);
+                sM.needDirect = false;
             }
         }
-        yield return true;
-    }
+        
+    }*/
     
     // 힌트버튼 조작
     public void HintBtn()

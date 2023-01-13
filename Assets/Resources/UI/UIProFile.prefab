@@ -611,7 +611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1438066271144966833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -619,17 +619,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3387576022918033523}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4819718924685832759}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1529, y: 1006}
-  m_SizeDelta: {x: 755.2, y: 100}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 662, y: 53}
+  m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3501483547576537525
 CanvasRenderer:
@@ -661,11 +661,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ecb51276810d2414fbd1d5da87de0f55, type: 3}
-    m_FontSize: 40
+    m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1242,7 +1242,18 @@ MonoBehaviour:
   - {fileID: 2884236175696752429}
   - {fileID: 1469786967250076356}
   hinttxt: {fileID: 3952130783722050690}
-  infotxt: {fileID: 1958815315079641216}
+  directtxt: {fileID: 0}
+  directtxts:
+  - "\uBC14\uB2E5\uC5D0 \uD654\uC0B4\uD45C\uAC00 \uC0DD\uACBC\uC5B4\uC694! \uC5B4\uB514\uB85C
+    \uAC08\uAE4C\uC694?"
+  - "\uBC14\uB2E5\uC5D0 \uAE30\uB2E4\uB9AC\uAE30\uC640 \uAC74\uB108\uAE30\uBC84\uD2BC\uC774
+    \uC0DD\uACBC\uC5B4\uC694! \uC5B4\uB5BB\uAC8C \uD560\uAE4C\uC694?"
+  - "\uD560\uBA38\uB2C8\uAC00 \uD798\uB4E4\uC5B4\uBCF4\uC774\uC2DC\uB294\uB370 \uD560\uBA38\uB2C8
+    \uBC84\uD2BC\uC744 \uB2E4\uC2DC \uB20C\uB7EC\uBCFC\uAE4C\uC694?"
+  - "\uBC14\uB2E5\uC5D0 \uD654\uC0B4\uD45C\uAC00 \uC0DD\uACBC\uC5B4\uC694! \uC9C0\uB984\uAE38\uB85C
+    \uAC08\uAE4C\uC694, \uB3CC\uC544\uC11C \uAC08\uAE4C\uC694?"
+  - "\uC606\uC9D1\uC544\uC800\uC528\uAC00 \uBB34\uC2A8 \uB9D0\uC500\uC744 \uD558\uC2DC\uB294\uC9C0
+    \uD55C\uBC88 \uB354 \uB20C\uB7EC\uBCFC\uAE4C\uC694?"
 --- !u!1 &8654133732025121088
 GameObject:
   m_ObjectHideFlags: 0
