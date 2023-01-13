@@ -107,8 +107,8 @@ public class UISticker : MonoBehaviour
         {
             if (stickers[i].isCheck == false)
                 return;
-            UIProfile.infotxt.gameObject.SetActive(true);
-            UIProfile.infotxt.text = infotxts[i];
+            //UIProfile.infotxt.gameObject.SetActive(true);
+            //UIProfile.infotxt.text = infotxts[i];
         }
 
         OpenOption();

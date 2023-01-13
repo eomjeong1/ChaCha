@@ -20,14 +20,14 @@ public class UIChanger2 : MonoBehaviour
         this.currentGame = ScenesManager.GetInstance().currentGame;
 
         btnSkip.onClick.AddListener(OnSkip);
-        btnSkip.gameObject.SetActive(false);
+        //btnSkip.gameObject.SetActive(false);
         vid = GetComponentInChildren<VideoPlayer>();
 
         if (isCorr)
             curScene = $"corr{currentGame}";
 
         else
-            curScene = $"incor{currentGame}";
+            curScene = $"incorrect";
 
 
         vid.clip = Resources.Load<VideoClip>($"Video/corr/{curScene}");
