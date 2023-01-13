@@ -20,7 +20,7 @@ public class UISticker : MonoBehaviour
     public Button[] btnSound;
     public Image[] imgSc;
     Sticker[] stickers;
-    public string[] infotxts;
+    
 
     // 선택지 버튼
     public GameObject btnOption;
@@ -45,7 +45,6 @@ public class UISticker : MonoBehaviour
     private void Start()
     {
         stickerManager = StickerManager.GetInstance();
-
 
         //ScenesManager.GetInstance().currentGame = 5; //테스트용//
         stickers = stickerManager.stickerList[ScenesManager.GetInstance().currentGame];
@@ -95,6 +94,7 @@ public class UISticker : MonoBehaviour
         Debug.Log($"{stickers[num].stickerName}를 확인했습니다.");
     }
 
+    public string[] infotxts = {"바닥에 화살표가 생겼어요! 어디로 갈까요?", "바닥에 기다리기와 건너기버튼이 생겼어요! 어떻게 할까요?","할머니가 힘들어보이시는데 할머니 버튼을 다시 눌러볼까요?", "바닥에 화살표가 생겼어요! 지름길로 갈까요, 돌아서 갈까요?","옆집아저씨가 무슨 말씀을 하시는지 한번 더 눌러볼까요?"};
     // 스티커를 전부 눌러야 옵션 버튼이 뜨게 하는 기능.
     public void IsCheckBool()
     {
@@ -107,6 +107,7 @@ public class UISticker : MonoBehaviour
         {
             if (stickers[i].isCheck == false)
                 return;
+            UIProfile.infotxt.gameObject.SetActive(true);
             UIProfile.infotxt.text = infotxts[i];
         }
 
