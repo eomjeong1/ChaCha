@@ -2851,12 +2851,33 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1161425872016976261, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
   m_PrefabInstance: {fileID: 1820993473}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1820993476}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1820993476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1161425872016976262, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
+  m_PrefabInstance: {fileID: 1820993473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &1820993477
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820993476}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f4fd9e6c204fab440a68046262cbb366, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f4fd9e6c204fab440a68046262cbb366, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &1826468818
 PrefabInstance:
   m_ObjectHideFlags: 0

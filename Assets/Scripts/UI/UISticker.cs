@@ -136,6 +136,7 @@ public class UISticker : MonoBehaviour
             UncleBtn.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
             UncleBtn.gameObject.GetComponent<Button>().onClick.AddListener(UncleAgain);
             UncleBtn.color = Color.green;
+            UncleBtn.gameObject.GetComponent<Animation>().Play(); 
 
             UCheckBool();
             
@@ -153,6 +154,8 @@ public class UISticker : MonoBehaviour
     {
         GCheckAgain = true;
         GranMaBtn.color = Color.white;
+        UncleBtn.gameObject.GetComponent<Animation>().Play();
+
         GCheckBool();
        
     }
@@ -171,7 +174,8 @@ public class UISticker : MonoBehaviour
     public void UncleAgain()
     {
         UCheckAgain = true;
-        UncleBtn.color = Color.white;
+        UncleBtn.color = Color.white; 
+        UncleBtn.gameObject.GetComponent<Animation>().Stop();
         UCheckBool();
     }
 

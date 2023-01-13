@@ -72,7 +72,6 @@ public class ResultUI : MonoBehaviour
             {
                 int index = i;
                 buttons[index].gameObject.AddComponent<AudioSource>();
-                buttons[index].onClick.AddListener(() => this.SoundPlay(index));
                 
                 buttons[index].onClick.AddListener(() => this.ShowAnswer(index));
 
@@ -146,7 +145,6 @@ public class ResultUI : MonoBehaviour
         string v = AnswertxtList[index, 0].ToString();
         Answertxt1.text = v;
         Debug.Log($"Á¤´ä{index}");
-        Answertxt1.gameObject.GetComponent<AudioSource>().clip = Resources.Load<AudioClip>($"Sound/Result/Nar{index}");
         Answertxt1.gameObject.GetComponent<AudioSource>().Play();
         string y = AnswertxtList[index, 1].ToString();
         Answertxt2.text = y;
