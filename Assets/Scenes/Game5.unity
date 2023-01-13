@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\uAC8C\uC784"
       objectReference: {fileID: 0}
+    - target: {fileID: 1161425870988390805, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1161425870988390811, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2786,6 +2790,18 @@ PrefabInstance:
     - target: {fileID: 1161425872016976261, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
       propertyPath: m_Type
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161425872016976261, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161425872016976261, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161425872016976261, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1161425872016976261, guid: f0a93ac3ab3b07640b98658915b2a4d8, type: 3}
       propertyPath: m_PreserveAspect

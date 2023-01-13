@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using UnityEngine;
+using UnityEngine.Purchasing;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,6 +13,7 @@ public class UIProfile : MonoBehaviour
     GameManager gameManager;
     ScenesManager sM;
     UISticker uiSticker;
+    int num;
 
     // 버튼
     public Button hint;
@@ -54,29 +57,23 @@ public class UIProfile : MonoBehaviour
         CreateApple();
         LoseApple();
         GetHinttxt();
-        //StartCoroutine(CheckDirect());
+      //  CheckDirect(sM.currentGame);
     }
-    /*IEnumerator CheckDirect()
+/*    public void CheckDirect(int idx)
     {
-        while (true)
+        sM = ScenesManager.GetInstance();
+        num = idx;
+        if (!sM.needDirect[num])
         {
-            yield return true;
-            Debug.Log("코루틴");               
-            if (sM.needDirect == true)
-            {
-                directtxt.gameObject.SetActive(true);
-                directtxt.text = directtxts[sM.currentGame - 1];
-                Debug.Log("디렉션 해줌");
-                break;
-            }
-            else
-            {
-                GameObject gameObject1 = directtxt.gameObject;
-                gameObject1.SetActive(false);
-                sM.needDirect = false;
-            }
+            directtxt.text = directtxts[num];
+            directtxt.gameObject.SetActive(true);
+
         }
-        
+        else
+        {
+            directtxt.gameObject.SetActive(false);
+        }
+
     }*/
     
     // 힌트버튼 조작

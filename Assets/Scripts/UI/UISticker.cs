@@ -104,10 +104,11 @@ public class UISticker : MonoBehaviour
         for (int i = 0; i < stickers.Length; i++)
         {
             if (stickers[i].isCheck == false)
-                return;            
+                return;
             
         }
-        scenesManager.needDirect = true;
+        
+        
         Debug.Log("µð·º¼Ç Áà");
         OpenOption();
     }
@@ -123,6 +124,7 @@ public class UISticker : MonoBehaviour
             Debug.Log("lookGranMa = true");
             GranMaBtn.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
             GranMaBtn.gameObject.GetComponent<Button>().onClick.AddListener(GranMaAgain);
+            GranMaBtn.color = Color.green;
             
             GCheckBool();
         }
@@ -133,7 +135,8 @@ public class UISticker : MonoBehaviour
             Debug.Log("lookUncle = true");
             UncleBtn.gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
             UncleBtn.gameObject.GetComponent<Button>().onClick.AddListener(UncleAgain);
-            
+            UncleBtn.color = Color.green;
+
             UCheckBool();
             
             
@@ -149,6 +152,7 @@ public class UISticker : MonoBehaviour
     public void GranMaAgain()
     {
         GCheckAgain = true;
+        GranMaBtn.color = Color.white;
         GCheckBool();
        
     }
@@ -167,6 +171,7 @@ public class UISticker : MonoBehaviour
     public void UncleAgain()
     {
         UCheckAgain = true;
+        UncleBtn.color = Color.white;
         UCheckBool();
     }
 

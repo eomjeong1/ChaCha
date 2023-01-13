@@ -183,14 +183,12 @@ public class ResultUI : MonoBehaviour
         if (GameManager.GetInstance().curScore >= 3)
         {
             gV.gameObject.SetActive(true);
-            gV.GetComponent<AudioSource>().Play();
             gVid.Play();
         }
 
         if (GameManager.GetInstance().curScore <= 2)
         {
             bV.gameObject.SetActive(true);
-            bV.GetComponent<AudioSource>().Play();
             bVid.Play();
         }
 
