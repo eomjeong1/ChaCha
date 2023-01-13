@@ -152,6 +152,7 @@ public class UISticker : MonoBehaviour
     // 다시 할머니 눌렀을 때 코루틴을 실행할 수 있는 조건 완성;
     public void GranMaAgain()
     {
+        audioPlayer[idx].Stop();
         GCheckAgain = true;
         GranMaBtn.color = Color.white;
 
@@ -173,6 +174,7 @@ public class UISticker : MonoBehaviour
     // 다시 삼촌 눌렀을 때 코루틴을 실행할 수 있는 조건 완성;
     public void UncleAgain()
     {
+        audioPlayer[idx].Stop();
         UCheckAgain = true;
         UncleBtn.color = Color.white; 
 
