@@ -26,10 +26,11 @@ public class UISticker : MonoBehaviour
     public GameObject btnOption;
 
     // 할머니, 삼촌 구분 불리언
-    bool lookGranMa;
-    bool lookUncle;
     bool GCheckAgain;
     bool UCheckAgain;
+
+    // UI프로필 디렉션 텍스트 불리언
+    public bool needDrirect;
 
     // 갱신된 할머니, 삼촌 버튼
     public Image GranMaBtn;
@@ -107,8 +108,7 @@ public class UISticker : MonoBehaviour
         {
             if (stickers[i].isCheck == false)
                 return;
-            //UIProfile.infotxt.gameObject.SetActive(true);
-            //UIProfile.infotxt.text = infotxts[i];
+            needDrirect = true;
         }
 
         OpenOption();

@@ -9,6 +9,7 @@ public class UIProfile : MonoBehaviour
     // 필요한 조건
     GameManager gameManager;
     ScenesManager sM;
+    UISticker uiSticker;
 
     // 버튼
     public Button hint;
@@ -25,6 +26,7 @@ public class UIProfile : MonoBehaviour
     public Text hinttxt;
 
     public Text infotxt;
+    string[] infotxts = { };
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +51,10 @@ public class UIProfile : MonoBehaviour
         CreateApple();
         LoseApple();
         GetHinttxt();
+    }
+    public void Directtxt()
+    {
+        infotxt.text = infotxts[];
     }
     
     // 힌트버튼 조작
