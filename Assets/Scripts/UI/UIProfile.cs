@@ -25,8 +25,10 @@ public class UIProfile : MonoBehaviour
         "할머니 뒤에 있는 검은 차는 뭘까요? 수상하네요!" , "지름길이라도 위험한 길은 피해서 가는 게 좋겠는데요?" , "아무리 옆집아저씨라도 혼자서 따라가면 안돼요!"};
     public Text hinttxt;
 
-    public Text infotxt;
-    string[] infotxts = { };
+    public Text directtxt;
+    public string[] directtxts = { "바닥에 화살표가 생겼어요! 어디로 갈까요?", "바닥에 기다리기와 건너기버튼이 생겼어요! 어떻게 할까요?",
+        "할머니가 힘들어보이시는데 할머니 버튼을 다시 눌러볼까요?", "바닥에 화살표가 생겼어요! 지름길로 갈까요, 돌아서 갈까요?", 
+        "옆집아저씨가 무슨 말씀을 하시는지 한번 더 눌러볼까요?" };
 
     // Start is called before the first frame update
     void Start()
@@ -51,10 +53,27 @@ public class UIProfile : MonoBehaviour
         CreateApple();
         LoseApple();
         GetHinttxt();
+        StartCoroutine(CheckDirect());
     }
-    public void Directtxt()
+    IEnumerator CheckDirect()
     {
-        infotxt.text = infotxts[];
+        while (false)
+        {           uiSticker = null;
+            if (uiSticker == null)
+                Debug.Log("null");
+            if (uiSticker.needDirect)
+            {
+                uiSticker.needDirect = false;
+                directtxt.text = directtxts[sM.currentGame - 1];
+                Debug.Log("디렉션 해줌");
+                break;
+            }
+            else
+            {
+                directtxt.gameObject.SetActive(false);
+            }
+        }
+        yield return true;
     }
     
     // 힌트버튼 조작
